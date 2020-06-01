@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import '../styles/Section.css'
 
 import {
-  makeBlankPlotGrid,
+  makePlotGrid,
   makeDuplicateTwoDimentionalArray
 } from '../utils'
 
@@ -18,14 +18,13 @@ const totalRows = 3
 const spotsPerRow = 3
 const totalSpots = totalRows * spotsPerRow
 
-const blankPlotGrid = [ ...makeBlankPlotGrid(totalRows, spotsPerRow) ]
-
-
-const Section = ({ name, plant, initialSeeds, setPlotFull }) => {
+const Section = ({ name, plant, initialSeeds, onFire, setOnFire, timeToGrow=5 }) => {
+  const [harvestTimeouts, setHarvestTimeouts] = useState([])
   const [seeds, setSeeds] = useState(initialSeeds)
   const [planted, setPlanted] = useState(0)
-  const [rows, setRows] = useState(blankPlotGrid)
+  const [rows, setRows] = useState(makePlotGrid(totalRows, spotsPerRow))
   const plotFull = planted >= totalSpots
+  const type = plant.toLowerCase()
 
   const buySeeds = () => {
     setSeeds(seeds + 2)
@@ -41,19 +40,36 @@ const Section = ({ name, plant, initialSeeds, setPlotFull }) => {
     while (!foundEmptySpot) {
       const rowToPlant = Math.floor(Math.random() * totalRows)
       const spotToPlant = Math.floor(Math.random() * spotsPerRow)
-      if (rows[rowToPlant][spotToPlant] === false) foundEmptySpot = true
-      newRows[rowToPlant][spotToPlant] = true
+      const thisSpot = newRows[rowToPlant][spotToPlant]
+      if (!!thisSpot && thisSpot.planted === false) {
+        foundEmptySpot = true
+        thisSpot.planted = true
+        thisSpot.type = type
+        setHarvest(rowToPlant, spotToPlant)
+      }
+      console.log("plantSeed -> foundEmptySpot", foundEmptySpot)
     }
     setRows(newRows)
     setPlanted(planted + 1)
     setSeeds(seeds - 1)
-    if (planted === totalSpots) setPlotFull(true)
   }
 
   const tillPlot = () => {
     setPlanted(0)
-    setRows(blankPlotGrid)
-    setPlotFull(false)
+    setRows(makePlotGrid(totalRows, spotsPerRow))
+    setOnFire(false)
+    harvestTimeouts.forEach(timeout => clearTimeout(timeout))
+    setHarvestTimeouts([])
+  }
+
+  const setHarvest = (rowToPlant, spotToPlant) => {
+    const newHarvestTimeout = setTimeout(() => {
+      const newRows = makeDuplicateTwoDimentionalArray(rows)
+      const thisSpot = newRows[rowToPlant][spotToPlant]
+      thisSpot.ready = true
+      setRows(newRows)
+    }, timeToGrow * 1000)
+    setHarvestTimeouts([ ...harvestTimeouts, newHarvestTimeout])
   }
 
   return (
@@ -84,13 +100,14 @@ const Section = ({ name, plant, initialSeeds, setPlotFull }) => {
         <UnityButton
           label={'Till the Plot'}
           type='solid'
-          disabled={planted < 1}
+          disabled={!onFire && planted < 1}
           onClick={tillPlot}
           className='button'
         />
       </div>
       <PlantingGrid
         rows={rows}
+        onFire={onFire}
       />
     </div>
   )

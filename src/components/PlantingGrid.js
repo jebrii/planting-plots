@@ -4,15 +4,16 @@ import '../styles/PlantingGrid.css'
 
 import PlantingSpot from './PlantingSpot'
 
-const PlantingGrid = ({ rows }) => {
+const PlantingGrid = ({ rows, onFire }) => {
   return (
     <div>
       {rows.map((spots, rowIndex) => (
         <div className='row' key={rowIndex}>
-          {spots.map((planted, spotIndex) => (
+          {spots.map((props, spotIndex) => (
             <PlantingSpot
               key={spotIndex}
-              planted={planted}
+              onFire={onFire}
+              {...props}
             />
           ))}
         </div>
