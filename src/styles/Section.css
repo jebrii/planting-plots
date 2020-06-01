@@ -2,19 +2,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
-}
-
-.section-header {
-  margin: 40px;
+  padding: 80px 40px;
 }
 
 .buttons-container {
   display: flex;
   flex-direction: row;
-  margin: 40px;
 }
 
 .button {
   margin: 20px;
+}
+
+.current-values {
+  display: flex;
+}
+
+.value-field {
+  margin: 20px;
+
+}
+
+.plot {
+  user-select: none;
 }

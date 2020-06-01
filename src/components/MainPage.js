@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import '../styles/MainPage.css'
 
@@ -9,15 +9,20 @@ import {
 import Section from './Section'
 
 const MainPage = () => {
+  const [plotsFull, setPlotsFull] = useState({ plotA: false, plotB: false })
   return (
     <div className='main-container'>
-      <UnityTypography size='header1' weight='header1'>My Awesome Notifications App</UnityTypography>
+      <UnityTypography size='header1' weight='header1'>My Awesome Seed Planting App</UnityTypography>
       <div className='sections-container'>
         <div className='section-wrapper'>
           <Section
             name={'A'}
-            plant={'Zucchini'}
+            plant={'Watermelon'}
             initialSeeds={10}
+            setPlotFull={(plotFull) => setPlotsFull({
+              plotA: plotFull,
+              ...plotsFull
+            })}
           />
         </div>
         <div className='section-wrapper'>
@@ -25,6 +30,10 @@ const MainPage = () => {
             name={'B'}
             plant={'Eggplant'}
             initialSeeds={7}
+            setPlotFull={(plotFull) => setPlotsFull({
+              plotB: plotFull,
+              ...plotsFull
+            })}
           />
         </div>
       </div>
