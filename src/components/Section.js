@@ -47,7 +47,6 @@ const Section = ({ name, plant, initialSeeds, onFire, setOnFire, timeToGrow=5 })
         thisSpot.type = type
         setHarvest(rowToPlant, spotToPlant)
       }
-      console.log("plantSeed -> foundEmptySpot", foundEmptySpot)
     }
     setRows(newRows)
     setPlanted(planted + 1)

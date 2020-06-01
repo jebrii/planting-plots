@@ -25,9 +25,9 @@ const PlantingGrid = ({ planted, ready, onFire, type='hamburger' }) => {
   return (
     <div className='spot'>
       {
-        !!onFire && `🔥` ||
-        !!ready && types[type] ||
-        !!planted && `🌱`
+        !!onFire ? `🔥` :
+        !!ready ? types[type] :
+        !!planted ? `🌱` : ''
       }
     </div>
   )

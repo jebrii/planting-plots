@@ -22,8 +22,8 @@ const MainPage = () => {
           <Section
             name={sectionNameA}
             plant={'Tomato'}
-            timeToGrow={10}
-            initialSeeds={10}
+            timeToGrow={5}
+            initialSeeds={6}
             onFire={onFire.plotA}
             setOnFire={(newOnFire) => setOnFire({
               ...onFire,
@@ -35,8 +35,8 @@ const MainPage = () => {
           <Section
             name={sectionNameB}
             plant={'Melon'}
-            timeToGrow={15}
-            initialSeeds={7}
+            timeToGrow={8}
+            initialSeeds={4}
             onFire={onFire.plotB}
             setOnFire={(newOnFire) => {
               setOnFire({
