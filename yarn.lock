@@ -1104,10 +1104,10 @@
     "@types/react" "16.9.11"
     react "^16.12.0"
 
-"@bit/smartworks.unity-react.unity-core-react@^0.4.5":
-  version "0.4.5"
-  resolved "https://node.bit.dev/smartworks.unity-react.unity-core-react/-/smartworks.unity-react.unity-core-react-0.4.5.tgz#bc3bd6dc9172366723df0b08150c23215ccf0829"
-  integrity sha1-vDvW3JFyNmcj3wsIFQwjIVzPCCk=
+"@bit/smartworks.unity-react.unity-core-react@^0.4.6":
+  version "0.4.6"
+  resolved "https://node.bit.dev/smartworks.unity-react.unity-core-react/-/smartworks.unity-react.unity-core-react-0.4.6.tgz#c3fa81ee13a672ebe4022d139e6d4843c98f872b"
+  integrity sha1-w/qB7hOmcuvkAi0Tnm1IQ8mPhys=
   dependencies:
     "@bit/smartworks.unity-react.unity-button-react" "0.2.1"
     "@bit/smartworks.unity-react.unity-code-editor-react" "0.2.2"
@@ -1117,7 +1117,7 @@
     "@bit/smartworks.unity-react.unity-global-nav-react" "0.2.1"
     "@bit/smartworks.unity-react.unity-modal-react" "0.2.1"
     "@bit/smartworks.unity-react.unity-notification-react" "1.0.0"
-    "@bit/smartworks.unity-react.unity-notifications-handler-react" "0.1.1"
+    "@bit/smartworks.unity-react.unity-notifications-handler-react" "0.1.2"
     "@bit/smartworks.unity-react.unity-page-header-react" "0.3.1"
     "@bit/smartworks.unity-react.unity-progress-react" "0.2.1"
     "@bit/smartworks.unity-react.unity-section-react" "0.3.3"
@@ -1168,10 +1168,10 @@
     "@types/react" "16.9.11"
     react "^16.12.0"
 
-"@bit/smartworks.unity-react.unity-notifications-handler-react@0.1.1":
-  version "0.1.1"
-  resolved "https://node.bit.dev/smartworks.unity-react.unity-notifications-handler-react/-/smartworks.unity-react.unity-notifications-handler-react-0.1.1.tgz#adfbdefc16fafe648e0e6a98310e7e088e11a784"
-  integrity sha1-rfve/Bb6/mSODmqYMQ5+CI4Rp4Q=
+"@bit/smartworks.unity-react.unity-notifications-handler-react@0.1.2":
+  version "0.1.2"
+  resolved "https://node.bit.dev/smartworks.unity-react.unity-notifications-handler-react/-/smartworks.unity-react.unity-notifications-handler-react-0.1.2.tgz#bf08c89675c01288d7177ce410aa40ca4b34a8f5"
+  integrity sha1-vwjIlnXAEojXF3zkEKpAyks0qPU=
   dependencies:
     "@bit/smartworks.unity.unity-core" "1.2.1"
     "@types/react" "16.9.11"

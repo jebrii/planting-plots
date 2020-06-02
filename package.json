@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@bit/smartworks.unity-react.unity-core-react": "^0.4.5",
+    "@bit/smartworks.unity-react.unity-core-react": "^0.4.6",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
